@@ -5,7 +5,7 @@ This repository provides a Python-based pipeline for analyzing A-to-G gene dosag
 The pipeline performs the following steps:
 
 1. Calculates A/G gene expression ratios for diads (tetraploid) and triads (hexaploid) using normalized expression values (e.g., TPM).
-2. Filters genes based on a minimum expression threshold of 0.5.
+2. Filters genes based on a minimum expression threshold. For tetraploid diads, a gene pair is only included if both the A-subgenome gene and the G-subgenome gene have expression values greater than or equal to 0.5. For hexaploid triads, all three genes (Am, At, and G) must be present in the expression dataset, and the sum of Am and At expression values (total A expression) and the G-subgenome expression value must each be greater than or equal to 0.5.
 3. Compares A/G ratios between ploidy levels using the Kruskal-Wallis test and Dunn’s post hoc test.
 4. Generates plots and statistical summaries.
 
